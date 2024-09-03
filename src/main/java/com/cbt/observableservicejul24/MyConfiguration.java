@@ -16,10 +16,19 @@ class MyConfiguration {
 
 
     @Bean
-    public WebClient webClient(WebClient.Builder webClientBuilder)
+    public WebClient webClient_1(WebClient.Builder webClientBuilder)
     {
         return webClientBuilder
                 .baseUrl("http://localhost:8072/observable-service-peer/hello")
+                .filter(new LoggingWebClientFilter())
+                .build();
+    }
+
+    @Bean
+    public WebClient webClient_2(WebClient.Builder webClientBuilder)
+    {
+        return webClientBuilder
+                .baseUrl("http://localhost:8072/observable-service-peer/async-hello")
                 .filter(new LoggingWebClientFilter())
                 .build();
     }

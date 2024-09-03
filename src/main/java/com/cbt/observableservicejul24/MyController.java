@@ -21,4 +21,6 @@ class MyController {
         log.info("Got a request");
         return myUserService.userName(userId);
     }
+
+
 }
