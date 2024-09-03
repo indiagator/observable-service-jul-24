@@ -22,5 +22,11 @@ class MyController {
         return myUserService.userName(userId);
     }
 
+    @GetMapping("/asyncuser/{userId}")
+    String getUserId(@PathVariable("userId") String userId) {
+        log.info("Got a request");
+        return myUserService.getUserId(userId);
+    }
+
 
 }
