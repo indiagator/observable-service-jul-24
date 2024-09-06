@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1")
 class MyController {
 
     private static final Logger log = LoggerFactory.getLogger(MyController.class);
@@ -55,6 +56,13 @@ class MyController {
 
         // Use the clientIpAddress value to identify the client
         return ResponseEntity.ok().headers(headers).body("Set The Cookie");
+    }
+
+    @GetMapping("gethealthstatus")
+    public ResponseEntity<String> getHealthStatus() throws InterruptedException
+    {
+        Thread.sleep(1500); // DELAY OF 1.5S
+        return ResponseEntity.ok("Observable SERVICE IS UP!");
     }
 
 
